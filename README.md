@@ -239,7 +239,7 @@ __このように、２つの計算からなるアルゴリズムは、より大
 		ptr = 0;
 		max = capacity;
 		try {
-			stk = new int[max];				// スタック本体用の配列を生成
+			stk = new int[max];	// スタック本体用の配列を生成
 		} catch (OutOfMemoryError e) {	// 生成できなかった
 			max = 0;
 		}
@@ -250,7 +250,7 @@ __このように、２つの計算からなるアルゴリズムは、より大
 ```Java
 //--- スタックにxをプッシュ ---//
 	public int push(int x) throws OverflowIntStackException {
-		if (ptr >= max)									// スタックは満杯
+		if (ptr >= max)	// スタックは満杯
 			throw new OverflowIntStackException();
 		return stk[ptr++] = x;
 	}
@@ -264,7 +264,7 @@ __このように、２つの計算からなるアルゴリズムは、より大
 ```Java
 //--- スタックからデータをポップ（頂上のデータを取り出す） ---//
 	public int pop() throws EmptyIntStackException {
-		if (ptr <= 0)										// スタックは空
+		if (ptr <= 0)	// スタックは空
 			throw new EmptyIntStackException();
 		return stk[--ptr];
 	}
