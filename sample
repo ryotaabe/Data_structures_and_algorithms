@@ -1,0 +1,12 @@
+databaseTester = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://localhost:5432/sample",
+				"postgres", "postgres", "public") {
+			@Override
+			public IDatabaseConnection getConnection() throws Exception {
+				IDatabaseConnection connection = new DatabaseConnection(
+						DriverManager.getConnection("jdbc:postgresql://localhost:5432/sample", "postgres", "postgres"),
+						getSchema());
+				connection.getConfig().setProperty(DatabaseConfig.PROPERTY_DATATYPE_FACTORY,
+						new PostgresqlDataTypeFactory());
+				return connection;
+			}
+		};
